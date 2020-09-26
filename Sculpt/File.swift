@@ -21,7 +21,6 @@ class workoutInfo{
         self.filters = filters
     }
     
-    
     var name: String
     var difficulty: String
     var duration: String
@@ -31,7 +30,4 @@ class workoutInfo{
     var videoId: String
     var description: String
     var filters: String
-    
-    
-    
 }
