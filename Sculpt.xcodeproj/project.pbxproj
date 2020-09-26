@@ -32,7 +32,7 @@
 		40EEB2A024AD0D980094D391 /* splash.gif in Resources */ = {isa = PBXBuildFile; fileRef = 40EEB29F24AD0D980094D391 /* splash.gif */; };
 		40EEB2A224AD5F9C0094D391 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 40EEB2A124AD5F9C0094D391 /* GoogleService-Info.plist */; };
 		93546275251FCFDB008388BB /* PrivacyPolicy.html in Resources */ = {isa = PBXBuildFile; fileRef = 93546274251FCFDB008388BB /* PrivacyPolicy.html */; };
-		93546278251FD0D6008388BB /* TermsAndCondition.html in Resources */ = {isa = PBXBuildFile; fileRef = 93546277251FD0D6008388BB /* TermsAndCondition.html */; };
+		93546278251FD0D6008388BB /* Terms & Condition.html in Resources */ = {isa = PBXBuildFile; fileRef = 93546277251FD0D6008388BB /* Terms & Condition.html */; };
 		9354627B251FD405008388BB /* WebBrowser.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9354627A251FD405008388BB /* WebBrowser.xib */; };
 		9354627D251FD414008388BB /* WebBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9354627C251FD414008388BB /* WebBrowser.swift */; };
 /* End PBXBuildFile section */
@@ -67,7 +67,7 @@
 		7CF54DEC7F105BCF6218AE4F /* Pods_Sculpt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sculpt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		93546274251FCFDB008388BB /* PrivacyPolicy.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = PrivacyPolicy.html; sourceTree = "<group>"; };
 		93546276251FD096008388BB /* PrivacyPolicy.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = PrivacyPolicy.md; sourceTree = "<group>"; };
-		93546277251FD0D6008388BB /* TermsAndCondition.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = TermsAndCondition.html; sourceTree = "<group>"; };
+		93546277251FD0D6008388BB /* Terms & Condition.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "Terms & Condition.html"; sourceTree = "<group>"; };
 		93546279251FD105008388BB /* TermsAndCondition.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TermsAndCondition.md; sourceTree = "<group>"; };
 		9354627A251FD405008388BB /* WebBrowser.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebBrowser.xib; sourceTree = "<group>"; };
 		9354627C251FD414008388BB /* WebBrowser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebBrowser.swift; sourceTree = "<group>"; };
@@ -133,7 +133,7 @@
 				40B59330250E8E8400AEEC9D /* File.swift */,
 				93546274251FCFDB008388BB /* PrivacyPolicy.html */,
 				93546276251FD096008388BB /* PrivacyPolicy.md */,
-				93546277251FD0D6008388BB /* TermsAndCondition.html */,
+				93546277251FD0D6008388BB /* Terms & Condition.html */,
 				93546279251FD105008388BB /* TermsAndCondition.md */,
 				9354627A251FD405008388BB /* WebBrowser.xib */,
 				9354627C251FD414008388BB /* WebBrowser.swift */,
@@ -228,7 +228,7 @@
 				4057C9E0249A4613004E4CB8 /* Main.storyboard in Resources */,
 				40EEB2A024AD0D980094D391 /* splash.gif in Resources */,
 				40EEB2A224AD5F9C0094D391 /* GoogleService-Info.plist in Resources */,
-				93546278251FD0D6008388BB /* TermsAndCondition.html in Resources */,
+				93546278251FD0D6008388BB /* Terms & Condition.html in Resources */,
 				9354627B251FD405008388BB /* WebBrowser.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
