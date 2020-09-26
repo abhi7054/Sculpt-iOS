@@ -11,15 +11,8 @@ import StoreKit
 
 class WorkoutViewController: UIViewController, UITextFieldDelegate, SKPaymentTransactionObserver, SKProductsRequestDelegate {
     
-    
-    
-    
-    
     @IBOutlet weak var subscriptionView: UIView!
-    
     var productsRequest: SKProductsRequest!
-    
-    
     let productID = "Subscription"
     let baseURL = "https://www.sculptfitapp.com/"
     
@@ -452,6 +445,18 @@ class WorkoutViewController: UIViewController, UITextFieldDelegate, SKPaymentTra
         
     }
     
+    //TNC
+    @IBAction func privacyPolicyButtonTouched(_ sender: Any) {
+        let vc = WebBrowser(nibName: "WebBrowser", bundle: .main)
+        vc.fileName = "PrivacyPolicy.html"
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    @IBAction func termsAndConditionButtonTouched(_ sender: Any) {
+        let vc = WebBrowser(nibName: "WebBrowser", bundle: .main)
+        vc.fileName = "TermsAndCondition.html"
+        self.present(vc, animated: true, completion: nil)
+    }
 }
 
 extension WorkoutViewController: UITableViewDataSource, UITableViewDelegate{
