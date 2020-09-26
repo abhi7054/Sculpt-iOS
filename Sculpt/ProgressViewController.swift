@@ -25,6 +25,7 @@ class ProgressViewController: UIViewController, UINavigationControllerDelegate, 
     @IBOutlet weak var progressView: UIView!
     @IBOutlet weak var afterImageView: UIImageView!
     @IBOutlet weak var beforeScrollView: UIScrollView!
+    @IBOutlet weak var afterScrollView: UIScrollView!
     
     let defaults = UserDefaults.standard
     var myarray: [String]!
@@ -36,7 +37,12 @@ class ProgressViewController: UIViewController, UINavigationControllerDelegate, 
         
        
         beforeScrollView.minimumZoomScale = 1.0
-        beforeScrollView.maximumZoomScale = 5.0
+        beforeScrollView.maximumZoomScale = 6.0
+        beforeScrollView.delegate = self
+        
+        afterScrollView.minimumZoomScale = 1.0
+        afterScrollView.maximumZoomScale = 6.0
+        afterScrollView.delegate = self
         
         myarray = defaults.stringArray(forKey: "SavedStringArray") ?? [String]()
         dateArray = defaults.stringArray(forKey: "date") ?? [String]()
@@ -47,14 +53,14 @@ class ProgressViewController: UIViewController, UINavigationControllerDelegate, 
             
             progressView.isHidden = false
             
-            let path = URL.urlInDocumentsDirectory(with: "image0.png").path
+            let path = URL.urlInDocumentsDirectory(with: "image0.jpeg").path
                   let image = UIImage(contentsOfFile: path)
                   
                   beforeImageView.image = image
             
             if myarray.count > 1{
                 
-                let path = URL.urlInDocumentsDirectory(with: "image1.png").path
+                let path = URL.urlInDocumentsDirectory(with: "image1.jpeg").path
                 let image = UIImage(contentsOfFile: path)
                                  
                 afterImageView.image = image
@@ -77,7 +83,12 @@ class ProgressViewController: UIViewController, UINavigationControllerDelegate, 
     
    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
       
-       return beforeImageView
+    if scrollView == beforeScrollView{
+        return beforeImageView
+    }else{
+        return afterImageView
+    }
+       
    }
     
     
@@ -128,11 +139,11 @@ class ProgressViewController: UIViewController, UINavigationControllerDelegate, 
                }
         
         
-            if let data = image.pngData() {
+        if let data = image.jpegData(compressionQuality: 1.0) {
                 
                 image = fixOrientation(img: image)
                 imageView.image = image
-                let filename = getDocumentsDirectory().appendingPathComponent("image\(myarray.count).png")
+                let filename = getDocumentsDirectory().appendingPathComponent("image\(myarray.count).jpeg")
                 
                     
                 do {
@@ -140,7 +151,7 @@ class ProgressViewController: UIViewController, UINavigationControllerDelegate, 
                 } catch {
                     print(error)
                 }
-                myarray.append("image\(myarray.count).png")
+                myarray.append("image\(myarray.count).jpeg")
                 
                 let date = Date()
                 let formatter = DateFormatter()
@@ -157,14 +168,14 @@ class ProgressViewController: UIViewController, UINavigationControllerDelegate, 
                 if myarray.count > 0 {
                     
                     progressView.isHidden = false
-                    let path = URL.urlInDocumentsDirectory(with: "image0.png").path
+                    let path = URL.urlInDocumentsDirectory(with: "image0.jpeg").path
                           let image = UIImage(contentsOfFile: path)
                           
                           beforeImageView.image = image
                     
                     if myarray.count > 1{
                         
-                        let path = URL.urlInDocumentsDirectory(with: "image1.png").path
+                        let path = URL.urlInDocumentsDirectory(with: "image1.jpeg").path
                         let image = UIImage(contentsOfFile: path)
                                          
                         afterImageView.image = image
@@ -222,7 +233,7 @@ class ProgressViewController: UIViewController, UINavigationControllerDelegate, 
            
         let cell = self.progressCollection.dequeueReusableCell(withReuseIdentifier: "progressCells", for: indexPath) as! ProgressCollectionViewCell
         
-        let path = URL.urlInDocumentsDirectory(with: "image\(indexPath.row).png").path
+        let path = URL.urlInDocumentsDirectory(with: "image\(indexPath.row).jpeg").path
         let image = UIImage(contentsOfFile: path)
         
         cell.imageView.image = image
@@ -243,7 +254,7 @@ class ProgressViewController: UIViewController, UINavigationControllerDelegate, 
    
     @objc func yourFunc(sender : UIButton){
         print(sender.tag)
-        let path = URL.urlInDocumentsDirectory(with: "image\(sender.tag).png").path
+        let path = URL.urlInDocumentsDirectory(with: "image\(sender.tag).jpeg").path
         let image = UIImage(contentsOfFile: path)
         
         beforeImageView.image = image
@@ -252,7 +263,7 @@ class ProgressViewController: UIViewController, UINavigationControllerDelegate, 
     
     @objc func afteryourFunc(sender : UIButton){
           print(sender.tag)
-          let path = URL.urlInDocumentsDirectory(with: "image\(sender.tag).png").path
+          let path = URL.urlInDocumentsDirectory(with: "image\(sender.tag).jpeg").path
           let image = UIImage(contentsOfFile: path)
           
           afterImageView.image = image

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import StoreKit
 
 class MoreViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
    
@@ -15,7 +16,7 @@ class MoreViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var table1: UITableView!
     
     let firstList = ["About Sculpt", "Restore Purchases", "Sculpt Website"]
-    let secondList = ["Rate Us", "Contact Us", "Exercise Equipment", "Stream To TV"]
+    let secondList = ["Rate Us", "Contact Us", "Stream To TV", "Terms & Conditions", "Privacy Policy"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,6 +77,10 @@ class MoreViewController: UIViewController, UITableViewDataSource, UITableViewDe
                    UIApplication.shared.openURL(url)
                  }
                }
+            }else{
+                
+                SKPaymentQueue.default().restoreCompletedTransactions()
+                
             }
                    
         }
@@ -86,17 +91,20 @@ class MoreViewController: UIViewController, UITableViewDataSource, UITableViewDe
                        openBrowser(string: "https://www.sculptfitapp.com/homes")
                    }else{
                     
-                    openBrowser(string: "https://www.sculptfitapp.com/equipment")
+                   openBrowser(string: "https://support.apple.com/en-gb/guide/iphone/iphd29858fd3/ios")
             }
                    
                }
-        
         if indexPath.row == 3{
-               
-                openBrowser(string: "https://support.apple.com/en-gb/guide/iphone/iphd29858fd3/ios")
-               
-           }
-        
+            
+            openBrowser(string: "https://www.hypertapp.com")
+            
+        }
+        if indexPath.row == 4{
+            
+            openBrowser(string: "https://www.hypertapp.com")
+            
+        }
     }
     
     func openBrowser(string: String){

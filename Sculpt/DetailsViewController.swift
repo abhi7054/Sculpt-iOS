@@ -19,8 +19,10 @@ class DetailsViewController: UIViewController, YTPlayerViewDelegate {
     @IBOutlet weak var getReadyView: UIView!
     @IBOutlet weak var startButton: UIButton!
   
+    @IBOutlet weak var likedButton: UIButton!
     @IBOutlet var youtubePayer: YTPlayerView!
     @IBOutlet weak var loadingView: UIView!
+    @IBOutlet weak var exerciseDescriptionLabel: UILabel!
     
     
     var titleToSet = ""
@@ -30,6 +32,18 @@ class DetailsViewController: UIViewController, YTPlayerViewDelegate {
     var exerciseName: String!
     var exerciseImageName: String!
     var videoID: String!
+    var equipmentLink: String!
+    var exerciseDescription: String!
+    
+    let defaults = UserDefaults.standard
+    
+    var likedArray: [String]!
+    var likedImageArray: [String]!
+    var likedDifficultyArray: [String]!
+    var likedDurationArray: [String]!
+    var likedVideoIdArray: [String]!
+    var likedExerciseImage: [String]!
+    var likedDescriptionArray: [String]!
     
 
     override func viewDidLoad() {
@@ -39,12 +53,34 @@ class DetailsViewController: UIViewController, YTPlayerViewDelegate {
         
         title = titleToSet
         
+        likedArray = defaults.stringArray(forKey: "likedArray") ?? [String]()
+        likedImageArray = defaults.stringArray(forKey: "likedImageArray") ?? [String]()
+        likedDifficultyArray = defaults.stringArray(forKey: "likedDifficultyArray") ?? [String]()
+        likedDurationArray = defaults.stringArray(forKey: "likedDurationArray") ?? [String]()
+        likedVideoIdArray = defaults.stringArray(forKey: "likedVideoIdArray") ?? [String]()
+        likedExerciseImage = defaults.stringArray(forKey: "likedExerciseImageArray") ?? [String]()
+        likedDescriptionArray = defaults.stringArray(forKey: "likedDescriptionArray") ?? [String]()
+        
+        print(likedArray)
+        print(likedImageArray)
+        print(likedDifficultyArray)
+        print(likedDurationArray)
+        print(likedVideoIdArray)
+        print(likedExerciseImage)
+        
+        
         
         image.image = UIImage(named: imageName)
         durationLabel.text = duration
         difficultyLabel.text = difficulty
         exerciseNameLabel.text = exerciseName
         exerciseImageView.image = UIImage(named: exerciseImageName)
+        exerciseDescriptionLabel.text = exerciseDescription
+        
+        if likedArray.contains(exerciseName){
+            
+            likedButton.setImage(UIImage(named: "heart_selected"), for: .normal)
+        }
         
         let mainWindow = UIApplication.shared.keyWindow!
        
@@ -78,11 +114,6 @@ class DetailsViewController: UIViewController, YTPlayerViewDelegate {
         loadingView.isHidden = false
         self.youtubePayer.load(withVideoId: self.videoID, playerVars:["playsinline": 0])
         
-        
-        
-       
-               
-        
     }
     @IBAction func exitAction(_ sender: Any) {
         
@@ -96,10 +127,37 @@ class DetailsViewController: UIViewController, YTPlayerViewDelegate {
             
             sender.setImage(UIImage(named: "heart_selected"), for: .normal)
             
+            likedArray.append(exerciseName)
+            likedDurationArray.append(duration)
+            likedDifficultyArray.append(difficulty)
+            likedImageArray.append(imageName)
+            likedExerciseImage.append(exerciseImageName)
+            likedVideoIdArray.append(videoID)
+            likedDescriptionArray.append(exerciseDescription)
+            defaults.set(likedArray, forKey: "likedArray")
+            defaults.set(likedImageArray, forKey: "likedImageArray")
+            defaults.set(likedDifficultyArray, forKey: "likedDifficultyArray")
+            defaults.set(likedDurationArray, forKey: "likedDurationArray")
+            defaults.set(likedVideoIdArray, forKey: "likedVideoIdArray")
+            defaults.set(likedExerciseImage, forKey: "likedExerciseImageArray")
+            defaults.set(likedDescriptionArray, forKey: "likedDescriptionArray")
+            
         }else{
             
             sender.setImage(UIImage(named: "heart"), for: .normal)
-                      
+                        
+           
+            if likedArray.count > 0{
+                likedArray.removeAll(where: { $0 == exerciseName})
+                defaults.set(likedArray, forKey: "likedArray")
+                defaults.set(likedImageArray, forKey: "likedImageArray")
+                defaults.set(likedDifficultyArray, forKey: "likedDifficultyArray")
+                defaults.set(likedDurationArray, forKey: "likedDurationArray")
+                defaults.set(likedVideoIdArray, forKey: "likedVideoIdArray")
+                defaults.set(likedExerciseImage, forKey: "likedExerciseImageArray")
+                defaults.set(likedDescriptionArray, forKey: "likedDescriptionArray")
+            }
+           
             
         }
         
@@ -110,9 +168,11 @@ class DetailsViewController: UIViewController, YTPlayerViewDelegate {
         let value = UIInterfaceOrientation.landscapeRight.rawValue
         UIDevice.current.setValue(value, forKey: "orientation")
         playerView.playVideo()
+        getReadyView.isHidden = true
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 4) { [unowned self] in
             self.loadingView.isHidden = true
+            self.startButton.isEnabled = true
             
         }
         
@@ -123,7 +183,7 @@ class DetailsViewController: UIViewController, YTPlayerViewDelegate {
   
     @IBAction func equipmentNeeded(_ sender: Any) {
         
-        openBrowser(string: "https://www.sculptfitapp.com/equipments")
+        openBrowser(string: equipmentLink)
         
     }
     
