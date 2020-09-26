@@ -149,8 +149,6 @@ class WorkoutViewController: UIViewController, UITextFieldDelegate, SKPaymentTra
                 filters[i] = filters[i] + "Cardio"
             }
             
-            
-            
             workoutData.append(workoutInfo(name: exerciseNames[i], difficulty: difficulties[i], duration: durations[i], imageNames: imageNames[i], workoutImages: workoutImageNames[i], equipmentURL: equipmentLinks[i], videoId: videoId[i], description: descriptions[i], filters:filters[i]))
             
         }
@@ -216,16 +214,13 @@ class WorkoutViewController: UIViewController, UITextFieldDelegate, SKPaymentTra
             @unknown default:
                 break
             }
-            
         }
-        
     }
     
     @IBAction func closeAppButton(_ sender: Any) {
-        
         exit(0)
-        
     }
+    
     @IBAction func purchaseButton(_ sender: Any) {
         
         if (SKPaymentQueue.canMakePayments())
@@ -269,27 +264,16 @@ class WorkoutViewController: UIViewController, UITextFieldDelegate, SKPaymentTra
         print("Error Fetching product information");
     }
     
-    
     @IBAction func searchSelection(_ sender: UIButton) {
-        
         let filterTitle = sender.titleLabel!.text!
-        
-        
         if sender.backgroundColor == .none{
-            
             sender.backgroundColor = .lightGray
-            
             currentFilter.append(filterTitle)
-            
         }else{
-            
             sender.backgroundColor = .none
             currentFilter.removeAll{ $0 == filterTitle}
-            
         }
-        
         updateFilter()
-        
     }
     
     func updateFilter() {
@@ -307,10 +291,7 @@ class WorkoutViewController: UIViewController, UITextFieldDelegate, SKPaymentTra
         }
     }
     
-    
-    
     @objc func dismissKeyboard() {
-        
         view.endEditing(true)
         
     }
@@ -322,11 +303,8 @@ class WorkoutViewController: UIViewController, UITextFieldDelegate, SKPaymentTra
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
         searchView.isHidden = true
         self.view.endEditing(true)
-        
-        
         
         searchedExercises.removeAll()
         searchedImageName.removeAll()
@@ -338,20 +316,10 @@ class WorkoutViewController: UIViewController, UITextFieldDelegate, SKPaymentTra
         searchedDescription.removeAll()
         
         //workoutTableView.reloadData()
-        
-        
         if textField.text!.isEmpty == false{
-            
-            
-            
             for i in 0..<filteredData.count {
-                
                 if filteredData[i].name.lowercased().contains(String(textField.text!).lowercased()){
-                    
                     isSearched = true
-                    
-                    
-                    
                     print(filteredData[i].name)
                     
                     searchedExercises.append(filteredData[i].name)
@@ -362,28 +330,14 @@ class WorkoutViewController: UIViewController, UITextFieldDelegate, SKPaymentTra
                     searchedDiffucty.append(filteredData[i].difficulty)
                     searchedEquipment.append(filteredData[i].equipmentURL)
                     searchedDescription.append(filteredData[i].description)
-                    
-                    
                 }
-                
             }
             
             print(searchedExercises)
-            
-            
-            
             workoutTableView.reloadData()
-            
-        }else{
-            
+        } else {
             for i in 0..<filteredData.count {
-                
-                
-                
                 isSearched = true
-                
-                
-                
                 print(filteredData[i].name)
                 
                 searchedExercises.append(filteredData[i].name)
@@ -394,30 +348,16 @@ class WorkoutViewController: UIViewController, UITextFieldDelegate, SKPaymentTra
                 searchedDiffucty.append(filteredData[i].difficulty)
                 searchedEquipment.append(filteredData[i].equipmentURL)
                 searchedDescription.append(filteredData[i].description)
-                
-                
-                
             }
             workoutTableView.reloadData()
-            
         }
-        
-        
-        
         return false
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if segue.identifier == "workoutSegue"{
-            
             let vc = segue.destination as! DetailsViewController
-            
             if filteredData.count > 0{
-                
-                
-                
-                
             }
             if isSearched{
                 
@@ -442,12 +382,7 @@ class WorkoutViewController: UIViewController, UITextFieldDelegate, SKPaymentTra
                 vc.exerciseDescription = self.descriptions[self.selectedIndex]
                 vc.equipmentLink = self.baseURL+self.equipmentLinks[self.selectedIndex]
             }
-            
-            
-            
-            
         }
-        
     }
     
     //TNC
@@ -459,74 +394,46 @@ class WorkoutViewController: UIViewController, UITextFieldDelegate, SKPaymentTra
     
     @IBAction func termsAndConditionButtonTouched(_ sender: Any) {
         let vc = WebBrowser(nibName: "WebBrowser", bundle: .main)
-        vc.fileName = "TermsAndCondition.html"
+        vc.fileName = "Terms & Condition.html"
         self.present(vc, animated: true, completion: nil)
     }
 }
 
 extension WorkoutViewController: UITableViewDataSource, UITableViewDelegate{
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        
-        
         if isSearched{
-            
             return searchedExercises.count
-            
         }
-        
-        
         return imageNames.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        
-        
         let cell = self.workoutTableView.dequeueReusableCell(withIdentifier: "workoutCell") as! WorkoutTableViewCell
         cell.selectionStyle = .none
         
-        
         if isSearched{
-            
             cell.exerciseNameTextView.text = self.searchedExercises[indexPath.row]
             cell.workoutImage.image = UIImage(named: searchedImageName[indexPath.row])
             cell.durationTextView.text = self.searchedDuration[indexPath.row]
             cell.difficultyTextView.text = self.searchedDiffucty[indexPath.row]
-            
         }else{
-            
-            
-            
             cell.workoutImage.image = UIImage(named: imageNames[indexPath.row])
             cell.exerciseNameTextView.text = self.exerciseNames[indexPath.row]
             cell.durationTextView.text = self.durations[indexPath.row]
             cell.difficultyTextView.text = self.difficulties[indexPath.row]
-            
         }
-        
-        
-        
         return cell
-        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         print(indexPath.row)
-        
         self.selectedIndex = indexPath.row
-        
-        
         performSegue(withIdentifier: "workoutSegue", sender: self)
-        
     }
-    
-    
-    
 }
+
 @IBDesignable extension UIButton {
-    
     @IBInspectable var borderWidth: CGFloat {
         set {
             layer.borderWidth = newValue
@@ -555,8 +462,4 @@ extension WorkoutViewController: UITableViewDataSource, UITableViewDelegate{
             return UIColor(cgColor: color)
         }
     }
-    
 }
-
-
-
