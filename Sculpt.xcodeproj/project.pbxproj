@@ -31,6 +31,10 @@
 		40EEB29E24AD0D1C0094D391 /* GIFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EEB29D24AD0D1C0094D391 /* GIFViewController.swift */; };
 		40EEB2A024AD0D980094D391 /* splash.gif in Resources */ = {isa = PBXBuildFile; fileRef = 40EEB29F24AD0D980094D391 /* splash.gif */; };
 		40EEB2A224AD5F9C0094D391 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 40EEB2A124AD5F9C0094D391 /* GoogleService-Info.plist */; };
+		93546275251FCFDB008388BB /* PrivacyPolicy.html in Resources */ = {isa = PBXBuildFile; fileRef = 93546274251FCFDB008388BB /* PrivacyPolicy.html */; };
+		93546278251FD0D6008388BB /* TermsAndCondition.html in Resources */ = {isa = PBXBuildFile; fileRef = 93546277251FD0D6008388BB /* TermsAndCondition.html */; };
+		9354627B251FD405008388BB /* WebBrowser.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9354627A251FD405008388BB /* WebBrowser.xib */; };
+		9354627D251FD414008388BB /* WebBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9354627C251FD414008388BB /* WebBrowser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +65,12 @@
 		40EEB29F24AD0D980094D391 /* splash.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = splash.gif; sourceTree = "<group>"; };
 		40EEB2A124AD5F9C0094D391 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7CF54DEC7F105BCF6218AE4F /* Pods_Sculpt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sculpt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		93546274251FCFDB008388BB /* PrivacyPolicy.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = PrivacyPolicy.html; sourceTree = "<group>"; };
+		93546276251FD096008388BB /* PrivacyPolicy.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = PrivacyPolicy.md; sourceTree = "<group>"; };
+		93546277251FD0D6008388BB /* TermsAndCondition.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = TermsAndCondition.html; sourceTree = "<group>"; };
+		93546279251FD105008388BB /* TermsAndCondition.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TermsAndCondition.md; sourceTree = "<group>"; };
+		9354627A251FD405008388BB /* WebBrowser.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebBrowser.xib; sourceTree = "<group>"; };
+		9354627C251FD414008388BB /* WebBrowser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebBrowser.swift; sourceTree = "<group>"; };
 		BD623C32362EEA5A6180E5A1 /* Pods-Sculpt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sculpt.release.xcconfig"; path = "Target Support Files/Pods-Sculpt/Pods-Sculpt.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -121,6 +131,12 @@
 				4057C9E1249A4613004E4CB8 /* Sculpt.xcdatamodeld */,
 				40EEB29B24AD0CEE0094D391 /* UIImage+Gif.swift */,
 				40B59330250E8E8400AEEC9D /* File.swift */,
+				93546274251FCFDB008388BB /* PrivacyPolicy.html */,
+				93546276251FD096008388BB /* PrivacyPolicy.md */,
+				93546277251FD0D6008388BB /* TermsAndCondition.html */,
+				93546279251FD105008388BB /* TermsAndCondition.md */,
+				9354627A251FD405008388BB /* WebBrowser.xib */,
+				9354627C251FD414008388BB /* WebBrowser.swift */,
 			);
 			path = Sculpt;
 			sourceTree = "<group>";
@@ -207,10 +223,13 @@
 			files = (
 				4057C9E8249A461A004E4CB8 /* LaunchScreen.storyboard in Resources */,
 				40EEB29224ACA54A0094D391 /* ken_rawlins_ebook.pdf in Resources */,
+				93546275251FCFDB008388BB /* PrivacyPolicy.html in Resources */,
 				4057C9E5249A461A004E4CB8 /* Assets.xcassets in Resources */,
 				4057C9E0249A4613004E4CB8 /* Main.storyboard in Resources */,
 				40EEB2A024AD0D980094D391 /* splash.gif in Resources */,
 				40EEB2A224AD5F9C0094D391 /* GoogleService-Info.plist in Resources */,
+				93546278251FD0D6008388BB /* TermsAndCondition.html in Resources */,
+				9354627B251FD405008388BB /* WebBrowser.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +290,7 @@
 				4057CA1A24A27DEA004E4CB8 /* WorkoutTableViewCell.swift in Sources */,
 				40EEB29A24ACB5380094D391 /* MoreViewController.swift in Sources */,
 				4099DEAA24BBFF7500CB5FD4 /* ProgressCollectionViewCell.swift in Sources */,
+				9354627D251FD414008388BB /* WebBrowser.swift in Sources */,
 				4057C9D9249A4613004E4CB8 /* SceneDelegate.swift in Sources */,
 				40B59331250E8E8400AEEC9D /* File.swift in Sources */,
 				40EEB29824ACAEA20094D391 /* ProgressViewController.swift in Sources */,

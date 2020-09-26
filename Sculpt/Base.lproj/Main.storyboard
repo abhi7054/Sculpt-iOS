@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZLZ-7m-w2h">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZLZ-7m-w2h">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -763,7 +763,7 @@
                                 <rect key="frame" x="30" y="129" width="354" height="530"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ZMO-JS-0ap">
-                                        <rect key="frame" x="15" y="20" width="324" height="490"/>
+                                        <rect key="frame" x="15" y="20" width="324" height="499"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subscription" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RYh-TE-58P">
                                                 <rect key="frame" x="0.0" y="0.0" width="324" height="30"/>
@@ -774,35 +774,99 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yHx-AW-iwT">
-                                                <rect key="frame" x="0.0" y="50" width="324" height="196"/>
-                                                <attributedString key="attributedText">
-                                                    <fragment>
-                                                        <string key="content">Welcome to Sculpt, to continue using the app, you need to subscribe at $19.99/month, you will get a 7 day free trial. You have to add a payment method now, but it will only be charged after your free trial is over.</string>
-                                                        <attributes>
-                                                            <color key="NSColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <font key="NSFont" size="20" name="HelveticaNeue"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.2" tighteningFactorForTruncation="0.0"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                </attributedString>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qx6-Ah-u7y">
-                                                <rect key="frame" x="0.0" y="266" width="324" height="84"/>
-                                                <attributedString key="attributedText">
-                                                    <fragment content="Note - If you already have subscription, make sure your internet is working.">
-                                                        <attributes>
-                                                            <color key="NSColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <font key="NSFont" size="20" name="HelveticaNeue"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.2" tighteningFactorForTruncation="0.0"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                </attributedString>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3C1-wO-9GA">
+                                                <rect key="frame" x="0.0" y="40" width="324" height="268"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="268" id="Gld-uc-wp9"/>
+                                                </constraints>
+                                                <mutableString key="text">Welcome to Sculpt, to continue using the app, you need to subscribe at $19.99/month, you will get a 7 day free trial. You have to add a payment method now, but it will only be charged after your free trial is over.  Note - If you already have subscription, make sure your internet is working.  By tapping Continue, the payment will be charged to your iTunes account, and will be automatically 
+renew for the same plan unless you cancel in settings in the iTunes store 24 hours prior to the next billing date.   </mutableString>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z2S-fl-4Ud">
+                                                <rect key="frame" x="0.0" y="318" width="324" height="61"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pc2-yc-V5h">
+                                                        <rect key="frame" x="0.0" y="4" width="324" height="49"/>
+                                                        <attributedString key="attributedText">
+                                                            <fragment content="By tapping Continue, you agree to our ">
+                                                                <attributes>
+                                                                    <color key="NSColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <font key="NSFont" metaFont="system" size="17"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                            <fragment content="Privacy Policy">
+                                                                <attributes>
+                                                                    <color key="NSColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <font key="NSFont" size="17" name="Arial-BoldMT"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                            <fragment content=" and ">
+                                                                <attributes>
+                                                                    <color key="NSColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <font key="NSFont" metaFont="system" size="17"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                            <fragment content="Terms of use">
+                                                                <attributes>
+                                                                    <color key="NSColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <font key="NSFont" size="17" name="Arial-BoldMT"/>
+                                                                    <font key="NSOriginalFont" size="17" name="Arial-BoldMT"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                            <fragment content=".">
+                                                                <attributes>
+                                                                    <color key="NSColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <font key="NSFont" size="17" name="Arial-BoldMT"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                        </attributedString>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HWi-nb-lDi">
+                                                        <rect key="frame" x="30.000000000000007" y="31" width="114.66666666666669" height="30"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="30" id="v8y-il-Lhi"/>
+                                                        </constraints>
+                                                        <connections>
+                                                            <action selector="privacyPolicyButtonTouched:" destination="g5V-1K-aqh" eventType="touchUpInside" id="TBQ-Rf-eE7"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="agG-MD-xbP">
+                                                        <rect key="frame" x="179.66666666666666" y="31" width="114.33333333333334" height="30"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="30" id="oJi-Cc-lVL"/>
+                                                        </constraints>
+                                                        <connections>
+                                                            <action selector="termsAndConditionButtonTouched:" destination="g5V-1K-aqh" eventType="touchUpInside" id="Kf7-7S-Fh7"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="agG-MD-xbP" firstAttribute="leading" secondItem="HWi-nb-lDi" secondAttribute="trailing" constant="35" id="201-IO-NPf"/>
+                                                    <constraint firstItem="pc2-yc-V5h" firstAttribute="leading" secondItem="z2S-fl-4Ud" secondAttribute="leading" id="41y-U1-7PE"/>
+                                                    <constraint firstAttribute="bottom" secondItem="agG-MD-xbP" secondAttribute="bottom" id="Kd5-to-LnI"/>
+                                                    <constraint firstAttribute="trailing" secondItem="pc2-yc-V5h" secondAttribute="trailing" id="Pum-FE-hLN"/>
+                                                    <constraint firstItem="agG-MD-xbP" firstAttribute="width" secondItem="HWi-nb-lDi" secondAttribute="width" id="WIz-NZ-pWh"/>
+                                                    <constraint firstItem="pc2-yc-V5h" firstAttribute="top" secondItem="z2S-fl-4Ud" secondAttribute="top" constant="4" id="WZE-ny-Z8Q"/>
+                                                    <constraint firstAttribute="height" constant="61" id="fxz-Wd-vRx"/>
+                                                    <constraint firstAttribute="bottom" secondItem="pc2-yc-V5h" secondAttribute="bottom" constant="8" id="gL1-Bn-QKl"/>
+                                                    <constraint firstAttribute="bottom" secondItem="HWi-nb-lDi" secondAttribute="bottom" id="mFh-Vm-EhB"/>
+                                                    <constraint firstItem="HWi-nb-lDi" firstAttribute="leading" secondItem="z2S-fl-4Ud" secondAttribute="leading" constant="30" id="yev-ws-Xnk"/>
+                                                    <constraint firstAttribute="trailing" secondItem="agG-MD-xbP" secondAttribute="trailing" constant="30" id="z92-oh-OBh"/>
+                                                </constraints>
+                                            </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PuZ-pm-XaQ">
-                                                <rect key="frame" x="0.0" y="370" width="324" height="50"/>
+                                                <rect key="frame" x="0.0" y="389" width="324" height="50"/>
                                                 <color key="backgroundColor" red="0.92765718699999999" green="0.2427663803" blue="0.44268584249999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="J2D-No-xzi"/>
@@ -821,7 +885,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iY8-WO-A64">
-                                                <rect key="frame" x="0.0" y="440" width="324" height="50"/>
+                                                <rect key="frame" x="0.0" y="449" width="324" height="50"/>
                                                 <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="edJ-dR-hrq"/>
@@ -841,7 +905,6 @@
                                             </button>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="Qx6-Ah-u7y" firstAttribute="top" secondItem="yHx-AW-iwT" secondAttribute="bottom" constant="20" id="NPD-Vo-Oao"/>
                                             <constraint firstItem="RYh-TE-58P" firstAttribute="leading" secondItem="ZMO-JS-0ap" secondAttribute="leading" id="QSC-Kd-a0l"/>
                                             <constraint firstAttribute="trailing" secondItem="RYh-TE-58P" secondAttribute="trailing" id="Zp1-D5-ofF"/>
                                         </constraints>
@@ -891,7 +954,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2sM-DU-iNn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1073.913043478261" y="-964.28571428571422"/>
+            <point key="canvasLocation" x="-13.043478260869566" y="-945.6521739130435"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="8Bu-fX-CBB">
@@ -1235,7 +1298,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cbW-Id-XFu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1931.8840579710147" y="-964.28571428571422"/>
+            <point key="canvasLocation" x="845" y="-945"/>
         </scene>
         <!--WebV Iew View Controller-->
         <scene sceneID="nRW-ZN-1LZ">
@@ -1261,7 +1324,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eAc-a2-34y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2710.144927536232" y="-962.27678571428567"/>
+            <point key="canvasLocation" x="1623" y="-943"/>
         </scene>
         <!--Food-->
         <scene sceneID="v04-2q-x8v">
@@ -1292,7 +1355,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0TR-JY-flc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1073.913043478261" y="-253.125"/>
+            <point key="canvasLocation" x="-13" y="-234"/>
         </scene>
         <!--Progress-->
         <scene sceneID="c39-V4-fVA">
@@ -1744,7 +1807,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RpB-IZ-wbN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1060.8695652173915" y="490.84821428571428"/>
+            <point key="canvasLocation" x="-26" y="510"/>
         </scene>
         <!--More-->
         <scene sceneID="SC5-ko-4P0">
@@ -1835,7 +1898,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="26F-Os-ndM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1074" y="1235"/>
+            <point key="canvasLocation" x="-13" y="1254"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="rfh-HF-s8v">
@@ -1858,7 +1921,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lru-td-deN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1473.913043478261" y="-725.22321428571422"/>
+            <point key="canvasLocation" x="-1700" y="-711"/>
         </scene>
         <!--Workouts-->
         <scene sceneID="oOX-s5-eu3">
@@ -1879,7 +1942,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ivP-Xm-sJi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="164" y="-964"/>
+            <point key="canvasLocation" x="-923" y="-945"/>
         </scene>
         <!--More-->
         <scene sceneID="eLG-KK-h5b">
@@ -1900,7 +1963,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EFp-kZ-CJV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="164" y="1235"/>
+            <point key="canvasLocation" x="-923" y="1254"/>
         </scene>
         <!--Food-->
         <scene sceneID="HtE-WA-6RW">
@@ -1921,7 +1984,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w2X-He-Gk4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="163.768115942029" y="-253.125"/>
+            <point key="canvasLocation" x="-923" y="-234"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="axh-sw-cFV">
@@ -1990,7 +2053,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xvK-F3-1jr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="150.72463768115944" y="490.84821428571428"/>
+            <point key="canvasLocation" x="-936" y="510"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="kZs-XH-ZYh">
@@ -2061,7 +2124,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qjY-gM-FrU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1061" y="-1869"/>
+            <point key="canvasLocation" x="-26" y="-1850"/>
         </scene>
     </scenes>
     <resources>
