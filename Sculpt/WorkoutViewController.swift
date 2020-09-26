@@ -168,6 +168,11 @@ class WorkoutViewController: UIViewController, UITextFieldDelegate, SKPaymentTra
         super.viewWillAppear(animated)
         updateLikedWorkout()
     }
+
+    @IBOutlet var textView: UITextView!
+    override func viewDidLayoutSubviews() {
+        self.textView.setContentOffset(.zero, animated: false)
+    }
     
     func updateLikedWorkout() {
         likedArray = defaults.stringArray(forKey: "likedArray") ?? [String]()
