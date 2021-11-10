@@ -19,9 +19,6 @@ class WebVIewViewController: UIViewController, YTPlayerViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-      
-        
         let value = UIInterfaceOrientation.landscapeLeft.rawValue
         UIDevice.current.setValue(value, forKey: "orientation")
 

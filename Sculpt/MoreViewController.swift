@@ -75,10 +75,14 @@ class MoreViewController: UIViewController, UITableViewDataSource, UITableViewDe
             }
         }
         if indexPath.row == 3 {
-            openBrowser(string: "https://www.hypertapp.com")
+            let vc = WebBrowser(nibName: "WebBrowser", bundle: .main)
+            vc.fileName = "Terms & Condition.html"
+            self.present(vc, animated: true, completion: nil)
         }
         if indexPath.row == 4 {
-            openBrowser(string: "https://www.hypertapp.com")
+            let vc = WebBrowser(nibName: "WebBrowser", bundle: .main)
+            vc.fileName = "PrivacyPolicy.html"
+            self.present(vc, animated: true, completion: nil)
         }
     }
     

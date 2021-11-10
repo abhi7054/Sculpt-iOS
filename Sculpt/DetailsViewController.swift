@@ -23,6 +23,7 @@ class DetailsViewController: UIViewController, YTPlayerViewDelegate {
     @IBOutlet var youtubePayer: YTPlayerView!
     @IBOutlet weak var loadingView: UIView!
     @IBOutlet weak var exerciseDescriptionLabel: UILabel!
+    @IBOutlet weak var comingSoon: UIStackView!
     
     
     var titleToSet = ""
@@ -50,6 +51,7 @@ class DetailsViewController: UIViewController, YTPlayerViewDelegate {
         super.viewDidLoad()
 
         getReadyView.isHidden = true
+        comingSoon.isHidden = true
         
         title = titleToSet
         
@@ -91,8 +93,24 @@ class DetailsViewController: UIViewController, YTPlayerViewDelegate {
     
     @IBAction func startAction(_ sender: Any) {
         
-        getReadyView.isHidden = false
-        startButton.isEnabled = false
+        
+        if exerciseName == "Tone & Shape" || exerciseName == "Body Burn" || exerciseName == "Perfect Body" || exerciseName == "Hot Legs"{
+            
+            comingSoon.isHidden = false
+            
+        }else{
+            getReadyView.isHidden = false
+            startButton.isEnabled = false
+            
+        }
+        
+        
+        
+    }
+    
+    @IBAction func comingSoonOkay(_ sender: Any) {
+        
+        comingSoon.isHidden = true
         
     }
     
