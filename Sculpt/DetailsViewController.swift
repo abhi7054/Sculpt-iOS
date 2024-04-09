@@ -185,17 +185,37 @@ class DetailsViewController: UIViewController, YTPlayerViewDelegate {
         
         let value = UIInterfaceOrientation.landscapeRight.rawValue
         UIDevice.current.setValue(value, forKey: "orientation")
+        
+        if #available(iOS 16.0, *) {
+
+            let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+
+            windowScene?.requestGeometryUpdate(.iOS(interfaceOrientations: .landscape))
+
+        }
+    
+        playerView.frame = CGRect(x: 0, y: 0, width: 375, height: 600)
         playerView.playVideo()
         getReadyView.isHidden = true
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4) { [unowned self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4) { 
             self.loadingView.isHidden = true
             self.startButton.isEnabled = true
-            
         }
         
     }
     
+    func playerView(_ playerView: YTPlayerView, didChangeTo state: YTPlayerState) {
+        if state != .playing {
+            playerView.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 4) { [unowned self] in
+                self.loadingView.isHidden = true
+                self.startButton.isEnabled = true
+            }
+        } else {
+            playerView.frame = CGRect(x: 0, y: 0, width: 375, height: 600)
+        }
+    }
     
    
   

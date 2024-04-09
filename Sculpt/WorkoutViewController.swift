@@ -146,7 +146,11 @@ class WorkoutViewController: UIViewController, UITextFieldDelegate, SKPaymentTra
             searchWorkoutTextField.isUserInteractionEnabled = false
             
         }
+        subscriptionView.isHidden = true
         
+        workoutTableView.isUserInteractionEnabled = true
+        searchView.isUserInteractionEnabled = true
+        searchWorkoutTextField.isUserInteractionEnabled = true
         for i in 0...exerciseNames.count-1{
             if likedArray.contains(exerciseNames[i]){
                 filters[i] = filters[i]+"Yes"
